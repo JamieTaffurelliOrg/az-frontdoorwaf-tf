@@ -75,7 +75,7 @@ variable "managed_rules" {
           match_variable = string
           operator       = string
           selector       = string
-      })))
+      })), [])
       overrides = optional(list(object(
         {
           name            = string
@@ -84,7 +84,7 @@ variable "managed_rules" {
             match_variable = string
             operator       = string
             selector       = string
-          })))
+          })), [])
           rules = optional(list(object({
             rule_id = string
             action  = string
@@ -94,10 +94,10 @@ variable "managed_rules" {
                 match_variable = string
                 operator       = string
                 selector       = string
-            })))
-          })))
+            })), [])
+          })), [])
         }
-      )))
+      )), [])
     }
   ))
   default     = []
