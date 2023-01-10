@@ -49,6 +49,7 @@ variable "custom_rules" {
       rate_limit_duration_in_minutes = optional(number)
       rate_limit_threshold           = optional(number)
       match_conditions = list(object({
+        name               = string
         match_variable     = string
         operator           = string
         selector           = optional(string)
