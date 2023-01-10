@@ -41,7 +41,7 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "policy" {
     content {
       type    = managed_rule.value["type"]
       version = managed_rule.value["version"]
-      action  = managed_rule.value["name"]
+      action  = managed_rule.value["action"]
 
       dynamic "exclusion" {
         for_each = { for k in managed_rule.value["exclusions"] : k.name => k if k != null }
