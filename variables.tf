@@ -70,34 +70,34 @@ variable "managed_rules" {
       type    = string
       version = string
       action  = string
-      exclusions = list(object(
+      exclusions = optional(list(object(
         {
           match_variable = string
           operator       = string
           selector       = string
-      }))
-      overrides = list(object(
+      })))
+      overrides = optional(list(object(
         {
           name            = string
           rule_group_name = string
-          exclusions = list(object({
+          exclusions = optional(list(object({
             match_variable = string
             operator       = string
             selector       = string
-          }))
-          rules = list(object({
+          })))
+          rules = optional(list(object({
             rule_id = string
             action  = string
             enabled = optional(bool, true)
-            exclusions = list(object(
+            exclusions = optional(list(object(
               {
                 match_variable = string
                 operator       = string
                 selector       = string
-            }))
-          }))
+            })))
+          })))
         }
-      ))
+      )))
     }
   ))
   default     = []
